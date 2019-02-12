@@ -1,0 +1,63 @@
+<nz-layout>
+    <nz-content class="container">
+        <h1>Personal Information</h1>
+        <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+            <nz-form-item>
+                <nz-form-control [nzSpan]="18" [nzOffset]="3">
+                    <nz-input-group [nzPrefix]="prefixUser">
+                        <input formControlName="userName" nz-input placeholder="Username">
+                    </nz-input-group>
+                    <nz-form-explain *ngIf="validateForm.get('userName').dirty && validateForm.get('userName').errors">Please
+                        input your username!</nz-form-explain>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-control [nzSpan]="18" [nzOffset]="3">
+                    <div nz-row nzGutter="8">
+                        <div nz-col nzSpan="4">
+                            <nz-form-label nzFor="sex">
+                                <i nz-icon type="man" class="dynamic-label-button" theme="outline"></i>
+                                sex</nz-form-label>
+                        </div>
+                        <div nz-col nzSpan="20">
+
+                            <nz-radio-group [ngStyle]="{'width': '100%'}" formControlName="sex">
+                                <div nz-row nzGutter="8">
+                                    <label nz-col nzSpan="12" nz-radio-button [nzValue]="'M'">Male</label>
+                                    <label nz-col nzSpan="12" nz-radio-button [nzValue]="'F'">Female</label>
+                                </div>
+                            </nz-radio-group>
+                        </div>
+                    </div>
+
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+
+                <nz-form-control [nzSpan]="18" [nzOffset]="3" class="appDef">
+                    <button nz-button nzType="default" nzBlock>
+                        <div nz-col nzSpan="2"><i nz-icon type="schedule" theme="outline"></i></div>
+                        <div nz-col nzSpan="18">Set Appointment</div>
+                        <div nz-col nzSpan="4"><i nz-icon type="right"></i></div>
+                    </button>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+
+                <nz-form-control [nzSpan]="18" [nzOffset]="3" class="appDef">
+                    <button nz-button nzType="default" nzBlock>
+                        <div nz-col nzSpan="2"><i nz-icon type="clock-circle" theme="outline"></i></div>
+                        <div nz-col nzSpan="18">last Appointment</div>
+                        <div nz-col nzSpan="4"><i nz-icon type="right"></i></div>
+                    </button>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item  nzFlex>
+              <nz-form-control [nzSpan]="18" [nzOffset]="3">
+                    <textarea rows="4" nz-input formControlName="textValue" placeholder="Comment"></textarea>
+              </nz-form-control>
+            </nz-form-item>
+        </form>
+        <ng-template #prefixUser><i nz-icon type="user"></i></ng-template>
+    </nz-content>
+</nz-layout>

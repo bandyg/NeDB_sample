@@ -1,0 +1,33 @@
+<nz-layout>
+  <nz-header>
+    <div nz-row class="header">
+      <div nz-col nzSpan="2" class="icon-search icon-div" (click)="search()"><i nz-icon class="icon" type="search" theme="outline"></i></div>
+      <div nz-col nzSpan="20">
+        <input nz-input placeholder="Please Input ToDo" class="input-top" [(ngModel)]="searchKey">
+      </div>
+      <div nz-col nzSpan="2" class="icon-add icon-div" (click)="addTodo()"><i nz-icon type="plus-circle" theme="outline"></i></div>      
+    </div>
+  </nz-header>
+  <nz-content class="container">
+    <div nz-row>
+      <h1>ToDo Items</h1>
+    </div>
+    <div *ngFor="let item of todoServ.todos; let i=index">
+      <div nz-row class="row-bottom">
+        <span nz-col nzSpan="4" [nzOffset]="4">{{item}}</span>
+        <span nz-col nzSpan="2" [nzOffset]="8" (click)="switchToDone(i)"><i nz-icon class="icon-td-done" type="plus-circle" theme="outline"></i></span>
+        <span nz-col nzSpan="2" [nzOffset]="1" (click)="delTodo(i)"><i nz-icon class="icon-td-del" type="close-circle" theme="outline"></i></span>        
+      </div>
+    </div>
+    <div nz-row>
+      <h1>Items Done</h1>
+    </div>
+    <div *ngFor="let item of todoServ.dones; let i=index">
+      <div nz-row class="row-bottom">
+        <span nz-col nzSpan="4" [nzOffset]="4">{{item}}</span>
+        <span nz-col nzSpan="2" [nzOffset]="8" (click)="switchToTodo(i)"><i nz-icon class="icon-d-td" type="minus-circle" theme="outline"></i></span>
+        <span nz-col nzSpan="2" [nzOffset]="1" (click)="delDone(i)"><i nz-icon class="icon-td-del" type="close-circle" theme="outline"></i></span>
+      </div>
+    </div>
+  </nz-content>
+</nz-layout>

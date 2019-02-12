@@ -1,0 +1,41 @@
+nz-header, .header {
+    background-color: dimgray;
+}
+
+.icon-search {
+    color: aliceblue;
+}
+
+.icon-search:hover, .icon-td-done {
+    color: chartreuse;
+}
+
+.icon-add {
+    color: aliceblue;
+}
+
+.icon-add:hover, .icon-d-td {
+    color: #3c9898;
+}
+
+.row-bottom {
+    border-bottom-width: 1px;
+    border-bottom-color: #3c9898;
+    border-bottom-style: dashed;
+}
+
+.icon-div {
+    text-align: center;
+}
+
+.input-top {
+    padding-top: 10px;
+}
+
+.icon-td-del {
+    color: red;
+}
+
+.icon-d-del {
+    color: brown;
+}

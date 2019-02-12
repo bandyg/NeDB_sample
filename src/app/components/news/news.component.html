@@ -1,0 +1,22 @@
+<p>
+  <i nz-icon type="align-left" theme="outline"></i>
+  <i nz-icon type="search" theme="outline"></i>
+</p>
+<p>
+  <button nz-button nzType="dashed"><i nz-icon type="search"></i>Search</button>
+</p>
+<p>
+  <i nz-icon [type]="'star'" [theme]="'fill'"></i>
+  {{title}}
+</p>
+<ul *ngFor="let item of news; let i=index">
+  <!--li *ngIf="i%2==0">{{item}}</li-->
+  <ng-container *ngIf="i%2==0; then thenTemplate; else elseTemplate"></ng-container>
+  <ng-template #thenTemplate>
+    <span [ngClass]="{'red': i%2==0?i>1?true:false : false}">{{item}} if clause</span>
+  </ng-template>
+  <ng-template #elseTemplate>
+    <span [ngClass]="{'red': i%2==0}">{{item}} else clause</span>
+  </ng-template>
+  
+</ul>
