@@ -39,3 +39,73 @@ nz-header, .header {
 .icon-d-del {
     color: brown;
 }
+
+.ii {    
+    background: #f00;
+
+    height: 50px;
+    width: 100px;
+    position: absolute;
+    right: -30px;
+    color: #FFF;
+    -moz-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform:rotate(45deg);
+    /**/
+    -webkit-box-shadow:0px 0px 10px #888;
+   -moz-box-shadow:0px 0px 10px #888; 
+    box-shadow: 0px 0px 10px #888;
+    /**/
+    text-align: center;
+    line-height: 50px;
+}
+
+.tricon {
+    width: 72px;
+    height: 30px;
+    background-color: #0c60ee;
+    color: #fff;
+    /**/
+
+    /**/
+    position: absolute;
+    top: -5px;
+    right: -28px;
+    /*角*/
+    -moz-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform:rotate(45deg);
+    /**/
+    -webkit-box-shadow:0px 0px 10px #888;
+   -moz-box-shadow:0px 0px 10px #888; 
+    box-shadow: 0px 0px 10px #888;
+    /**/
+    text-align: center;
+    line-height: 40px;
+}
+
+.con{
+    overflow: hidden;
+  }
+
+.subscript{
+    color: #fff;
+    height: 40px;
+    width: 100px;
+    position: absolute;
+    right: -40px;
+    top: -5px;
+    text-align: center;
+    line-height: 55px;
+    font-family: "黑体";
+    background-color: #0c60ee;
+    -moz-transform:rotate(45deg);
+    -webkit-transform:rotate(45deg);
+    -o-transform:rotate(45deg);
+    -ms-transform:rotate(45deg);
+    transform:rotate(45deg);
+}

@@ -9,6 +9,7 @@ import { TodoItemsService } from '../../services/todo-items.service';
 export class TodoComponent implements OnInit {
 
   searchKey: string;
+  searchRes: any = null;
 
   constructor(private todoServ: TodoItemsService) { }
 
@@ -18,8 +19,13 @@ export class TodoComponent implements OnInit {
   }
 
   async search() {
+    this.searchRes = null;
     console.log('search for item');
-    console.log(await this.todoServ.getTodos());
+    this.searchKey.trim();
+    if (this.searchKey.length > 0) {
+      this.searchRes = await this.todoServ.searchByKeyword(this.searchKey);
+    }
+
   }
 
   addTodo() {

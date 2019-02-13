@@ -14,20 +14,20 @@ export class TodoItemsService {
   constructor() {
     this.db = Nedb('todos.db');
     console.log(this.db);
-    this.initDB(); 
+    this.initDB();
   }
 
   async getTodos() {
     const todos = await this.db.find({ collection: 'Todos' });
-    if ( todos.length !== 0 && todos[0].Todos !== null ) {
-      this.todos = todos[0].Todos;   
+    if (todos.length !== 0 && todos[0].Todos !== null) {
+      this.todos = todos[0].Todos;
     }
     return this.todos;
   }
 
   async getDones() {
     const dones = await this.db.find({ collection: 'Dones' });
-    if ( dones.length !== 0 && dones[0].Dones !== null ) {
+    if (dones.length !== 0 && dones[0].Dones !== null) {
       this.dones = dones[0].Dones;
     }
     return this.dones;
@@ -42,11 +42,11 @@ export class TodoItemsService {
   }
 
   async removeTodos(rmTodo: string) {
-    const rmCount = await this.db.update({ collection: 'Todos' }, { $pull: {Todos: rmTodo} } );
+    const rmCount = await this.db.update({ collection: 'Todos' }, { $pull: { Todos: rmTodo } });
   }
 
   async removeDones(rmDone: string) {
-    const rmCount = await this.db.update({ collection: 'Dones' }, { $pull: {Dones: rmDone} } );
+    const rmCount = await this.db.update({ collection: 'Dones' }, { $pull: { Dones: rmDone } });
   }
 
   async initTodos() {
@@ -84,4 +84,25 @@ export class TodoItemsService {
     }
   }
 
+  async searchByKeyword(keyword: string) {
+    const anyCollection = await this.db.find({ collection: { $in: ['Todos', 'Dones'] } }, { _id: 0, collection: 0 });
+    const todosRes = anyCollection[0].Todos.filter((val: string) => {
+      return this.keywordFilter(val, keyword);
+    });
+    const doneRes = anyCollection[1].Dones.filter((val: string) => {
+      return this.keywordFilter(val, keyword);
+    });
+    return { todos: [...todosRes], dones: [...doneRes] };
+  }
+
+  keywordFilter(val: string, keyword: string) {
+    if (val.indexOf(keyword) !== -1) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
 }
+
+
